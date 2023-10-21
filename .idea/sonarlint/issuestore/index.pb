@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 v
@@ -13,3 +14,7 @@ Ckaddem/src/main/java/tn/esprit/spring/kaddem/KaddemApplication.java,1\b\1b65d3
 kaddem/pom.xml,4\b\4b9e327a5c949f32df7cf12b88b79bf7aadf0491
 …
 Ukaddem/src/main/java/tn/esprit/spring/kaddem/services/DepartementServiceCRUDTest.java,7\5\75411ed705cc51521963dd139cfb80a0ecd180d6
+=======
+E
+DevOps/kaddem/pom.xml,1\2\12a9dd598663bf95e1947f9df7e440607909dfec
+>>>>>>> b1a4b682e6c0830fed4ba10c1b865015660faac0
