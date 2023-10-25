@@ -8,12 +8,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.kaddem.entities.Departement;
 import tn.esprit.spring.kaddem.repositories.DepartementRepository;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import java.util.Optional;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
- class DepartementServiceImplMock {
+ class DepartementServiceTest {
     @Mock
     private DepartementRepository departementRepository; // Mock the repository
 
