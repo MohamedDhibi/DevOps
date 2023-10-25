@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-public class DepartementServiceImplMock {
+ class DepartementServiceImplMock {
     @Mock
     private DepartementRepository departementRepository; // Mock the repository
 
@@ -21,7 +21,7 @@ public class DepartementServiceImplMock {
     private DepartementServiceImpl departementService; // The service to be tested
 
     @Test
-    public void testCreateDepartement() {
+     void testCreateDepartement() {
         // Arrange
         Departement departementToCreate = new Departement();
         when(departementRepository.save(any(Departement.class))).thenReturn(departementToCreate);
