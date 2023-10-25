@@ -46,6 +46,11 @@
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.6.9</version>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.6.0</version>
+        </dependency>
 
     </dependencies>
 
@@ -65,5 +70,13 @@
             </plugin>
         </plugins>
     </build>
+    <!-- Deploy to Nexus -->
+    <distributionManagement>
+        <repository>
+            <id>deploymentRepo</id>
+            <name>Nexus Repository</name>
+            <url>http://192.168.1.18:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
 
 </project>
