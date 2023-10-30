@@ -1,0 +1,12 @@
+
+m	java:S117K"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ˆ¾­8¼ş½¶1
+r	java:S117L"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œä÷óúÿÿÿÿ8¼ş½¶1
+r	java:S117Z"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“õ¢úÿÿÿÿ8ä¥¾¶1
+r	java:S117\"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±‡Ìúÿÿÿÿ8¼ş½¶1
+r	java:S117]"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö§”ƒúÿÿÿÿ8½ş½¶1
+E
+java:S54116"(Use a primitive boolean expression here.(¦“º8½ş½¶1
+E
+java:S5411J"(Use a primitive boolean expression here.(à·ó‚8‹Ô½¶1
+J
+java:S1905Z"(Remove this unnecessary cast to "float".(“õ¢úÿÿÿÿ8¥¾¶1
