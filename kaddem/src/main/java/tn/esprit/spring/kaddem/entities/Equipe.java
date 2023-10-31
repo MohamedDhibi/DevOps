@@ -23,8 +23,11 @@ public class Equipe implements Serializable{
     @OneToOne
     private DetailEquipe detailEquipe;
 
+    public Equipe(Integer idEquipe) {
+        this.idEquipe = idEquipe;
+    }
+
     public Equipe() {
-        // TODO Auto-generated constructor stub
     }
 
     public Equipe(String nomEquipe) {
