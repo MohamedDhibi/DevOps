@@ -21,7 +21,7 @@ import java.util.List;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
- class EquipeServiceTest {
+class EquipeServiceTest {
     @Mock
     EquipeRepository equipeRepository;
     @InjectMocks
@@ -31,7 +31,7 @@ import java.util.List;
     List<Equipe> equipes = Arrays.asList(equipe1, equipe2);
 
     @Test
-     void testRetrieveAllEquipes() {
+    void testRetrieveAllEquipes() {
         // Arrange
 
         Mockito.when(equipeRepository.findAll()).thenReturn(equipes);
@@ -45,7 +45,7 @@ import java.util.List;
     }
 
     @Test
-     void testAddEquipe() {
+    void testAddEquipe() {
         // Arrange
         Equipe newEquipe = new Equipe("New Equipe", Niveau.JUNIOR);
 

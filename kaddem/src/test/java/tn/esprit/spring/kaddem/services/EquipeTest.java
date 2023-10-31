@@ -10,12 +10,12 @@ import tn.esprit.spring.kaddem.repositories.EquipeRepository;
 import java.util.List;
 
 @SpringBootTest
- class EquipeTest {
+class EquipeTest {
     EquipeRepository equipeRepository;
     @Autowired
     EquipeServiceImpl equipeService;
     @Test
-     void testretrieveAllEquipes()
+    void testretrieveAllEquipes()
     {
         List<Equipe> equipeList =equipeService.retrieveAllEquipes();
         Assertions.assertEquals(0 ,equipeList.size());
