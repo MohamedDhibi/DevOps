@@ -20,4 +20,5 @@ class EquipeTest {
         List<Equipe> equipeList =equipeService.retrieveAllEquipes();
         Assertions.assertEquals(0 ,equipeList.size());
     }
+
 }
