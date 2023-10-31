@@ -51,9 +51,10 @@ ContratRepository contratRepository;
 		Integer nbContratssActifs=0;
 		if (!contrats.isEmpty()) {
 			for (Contrat contrat : contrats) {
-				if (((contrat.getArchive())!=null)&& contrat.getArchive()) {
+				if (contrat.getArchive() != null && contrat.getArchive()) {
 					nbContratssActifs++;
 				}
+
 			}
 		}
 		if (nbContratssActifs<=4){
@@ -72,13 +73,13 @@ ContratRepository contratRepository;
 		for (Contrat contrat : contrats) {
 			Date dateSysteme = new Date();
 			if (!contrat.getArchive()) {
-				long difference_In_Time = dateSysteme.getTime() - contrat.getDateFinContrat().getTime();
-				long difference_In_Days = (difference_In_Time / (1000 * 60 * 60 * 24)) % 365;
-				if (difference_In_Days==15){
+				long differenceInTime = dateSysteme.getTime() - contrat.getDateFinContrat().getTime();
+				long differenceInDays = (differenceInTime / (1000 * 60 * 60 * 24)) % 365;
+				if (differenceInDays==15){
 					contrats15j.add(contrat);
 					log.info(" Contrat : " + contrat);
 				}
-				if (difference_In_Days==0) {
+				if (differenceInDays==0) {
 					contratsAarchiver.add(contrat);
 					contrat.setArchive(true);
 					contratRepository.save(contrat);
@@ -87,23 +88,24 @@ ContratRepository contratRepository;
 		}
 	}
 	public float getChiffreAffaireEntreDeuxDates(Date startDate, Date endDate){
-		float difference_In_Time = endDate.getTime() - startDate.getTime();
-		float difference_In_Days = (difference_In_Time / (1000 * 60 * 60 * 24)) % 365;
-		float difference_In_Months =difference_In_Days/30;
-        List<Contrat> contrats=contratRepository.findAll();
+		float differenceInTime = (endDate.getTime() - startDate.getTime());
+		float differenceInDays = (differenceInTime / (1000 * 60 * 60 * 24)) % 365;
+		float differenceInMonths = differenceInDays / 30;
+
+		List<Contrat> contrats=contratRepository.findAll();
 		float chiffreAffaireEntreDeuxDates=0;
 		for (Contrat contrat : contrats) {
 			if (contrat.getSpecialite()== Specialite.IA){
-				chiffreAffaireEntreDeuxDates+=(difference_In_Months*300);
+				chiffreAffaireEntreDeuxDates+=(differenceInMonths*300);
 			} else if (contrat.getSpecialite()== Specialite.CLOUD) {
-				chiffreAffaireEntreDeuxDates+=(difference_In_Months*400);
+				chiffreAffaireEntreDeuxDates+=(differenceInMonths*400);
 			}
 			else if (contrat.getSpecialite()== Specialite.RESEAUX) {
-				chiffreAffaireEntreDeuxDates+=(difference_In_Months*350);
+				chiffreAffaireEntreDeuxDates+=(differenceInMonths*350);
 			}
 			else
 			 {
-				 chiffreAffaireEntreDeuxDates+=(difference_In_Months*450);
+				 chiffreAffaireEntreDeuxDates+=(differenceInMonths*450);
 			}
 		}
 		return chiffreAffaireEntreDeuxDates;
