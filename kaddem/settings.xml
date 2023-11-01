@@ -1,0 +1,9 @@
+<settings>
+  <servers>
+    <server>
+      <id>deploymentRepo</id>
+      <username>admin</username>
+      <password>eya</password>
+    </server>
+  </servers>
+</settings>
