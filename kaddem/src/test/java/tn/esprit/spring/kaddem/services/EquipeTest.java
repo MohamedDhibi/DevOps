@@ -1,9 +1,8 @@
 package tn.esprit.spring.kaddem.services;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.kaddem.entities.Equipe;
@@ -14,17 +13,20 @@ import java.text.ParseException;
 import java.util.List;
 
 @SpringBootTest
+@TestMethodOrder(OrderAnnotation.class)
 class EquipeTest {
     EquipeRepository equipeRepository;
     @Autowired
     EquipeServiceImpl equipeService;
     @Test
+    @Order(1)
     void testretrieveAllEquipes()
     {
         List<Equipe> equipeList =equipeService.retrieveAllEquipes();
         Assertions.assertEquals(0 ,equipeList.size());
     }
     @Test
+    @Order(2)
     void testaddEquipe () throws ParseException {
         Equipe equipe = new Equipe( );
         equipe.setNomEquipe("Equipe");

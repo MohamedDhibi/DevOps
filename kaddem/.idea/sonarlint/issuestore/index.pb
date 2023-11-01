@@ -38,3 +38,15 @@ n
 mvnw,5\d\5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d
 l
 <src/main/java/tn/esprit/spring/kaddem/KaddemApplication.java,8\1\818208cca585c231b09f53a0c9018ecb6a93896f
+}
+Msrc/main/java/tn/esprit/spring/kaddem/controllers/EtudiantRestController.java,4\c\4c21a4776efdb021ff4fc8eab02c729a0d0c315a
+
+Osrc/main/java/tn/esprit/spring/kaddem/controllers/UniversiteRestController.java,a\b\abcf1ee957fddca78318cda808cbb719d9a1c443
+l
+<src/main/java/tn/esprit/spring/kaddem/entities/Etudiant.java,e\2\e2371755a36c2772d53bbf88d0bfe3ce080f5037
+o
+?src/main/java/tn/esprit/spring/kaddem/entities/Departement.java,f\8\f8d0bfbab576fbc88b678ff1de5f7f0591cdd1ac
+p
+@src/main/java/tn/esprit/spring/kaddem/entities/DetailEquipe.java,6\2\62d9d8a0358e99b05246d599757a1d7c160ced76
+j
+:src/main/java/tn/esprit/spring/kaddem/entities/Niveau.java,d\3\d3b9da838c57259524e07428eaf7a20fc5ad2a37
