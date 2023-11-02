@@ -50,3 +50,6 @@ p
 @src/main/java/tn/esprit/spring/kaddem/entities/DetailEquipe.java,6\2\62d9d8a0358e99b05246d599757a1d7c160ced76
 j
 :src/main/java/tn/esprit/spring/kaddem/entities/Niveau.java,d\3\d3b9da838c57259524e07428eaf7a20fc5ad2a37
+:
+
+Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
