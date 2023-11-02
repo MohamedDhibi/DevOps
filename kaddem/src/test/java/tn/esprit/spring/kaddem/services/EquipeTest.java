@@ -29,6 +29,7 @@ class EquipeTest {
     @Order(2)
     void testaddEquipe () throws ParseException {
         Equipe equipe = new Equipe( );
+        equipe.setIdEquipe(1);
         equipe.setNomEquipe("Equipe");
         equipe.setNiveau(Niveau.JUNIOR);
         Equipe e =equipeService.addEquipe(equipe);
@@ -36,6 +37,14 @@ class EquipeTest {
         Assertions.assertEquals("Equipe", equipe.getNomEquipe());
 
         Assertions.assertEquals(Niveau.JUNIOR, equipe.getNiveau());
+
+    }
+    @Test
+    @Order(3)
+    void testretrieveEquipe()
+    {
+        Equipe e=equipeService.retrieveEquipe(1);
+        Assertions.assertEquals(1,e.getIdEquipe());
 
     }
 }
