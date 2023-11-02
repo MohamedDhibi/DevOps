@@ -2,6 +2,7 @@ package tn.esprit.spring.kaddem.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.spring.kaddem.dto.DepartementDTO;
 import tn.esprit.spring.kaddem.entities.Departement;
 import tn.esprit.spring.kaddem.services.IDepartementService;
 
@@ -26,8 +27,9 @@ public class DepartementRestController {
 
 	// http://localhost:8089/Kaddem/departement/add-departement
 	@PostMapping("/add-departement")
-	public Departement addDepartement(@RequestBody Departement d) {
-		return departementService.addDepartement(d);
+	public Departement addDepartement(@RequestBody DepartementDTO departementDTO) {
+		Departement departement = convertToDepartement(departementDTO); // Convert DTO to Entity
+		return departementService.addDepartement(departement);
 	}
 
 
@@ -39,9 +41,22 @@ public class DepartementRestController {
 
 	// http://localhost:8089/Kaddem/departement/update-departement
 	@PutMapping("/update-departement")
-	public Departement updateDepartement(@RequestBody Departement e) {
-		return departementService.updateDepartement(e);
+	public Departement updateDepartement(@RequestBody DepartementDTO departementDTO) {
+		Departement departement = convertToDepartement(departementDTO); // Convert DTO to Entity
+		return departementService.updateDepartement(departement);
 	}
+
+	private Departement convertToDepartement(DepartementDTO departementDTO) {
+		Departement departement = new Departement();
+		departement.setIdDepart(departementDTO.getIdDepart());
+		departement.setNomDepart(departementDTO.getNomDepart());
+
+		// You can also set the associated Etudiants using IDs here
+
+		return departement;
+	}
+
+
 
 }
 
