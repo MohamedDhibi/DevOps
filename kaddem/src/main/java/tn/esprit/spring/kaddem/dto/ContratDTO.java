@@ -1,8 +1,6 @@
 package tn.esprit.spring.kaddem.dto;
 
-import tn.esprit.spring.kaddem.entities.Specialite;
 
-import java.util.Date;
 
 public class ContratDTO extends BaseDTO {
 
