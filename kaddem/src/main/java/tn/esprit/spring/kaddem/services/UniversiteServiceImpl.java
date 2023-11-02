@@ -16,7 +16,8 @@ public class UniversiteServiceImpl implements IUniversiteService{
     @Autowired
     DepartementRepository departementRepository;
     public UniversiteServiceImpl() {
-        // TODO Auto-generated constructor stub
+        // This constructor is intentionally empty as no additional initialization is required.
+
     }
     public   List<Universite> retrieveAllUniversites(){
         return (List<Universite>) universiteRepository.findAll();
