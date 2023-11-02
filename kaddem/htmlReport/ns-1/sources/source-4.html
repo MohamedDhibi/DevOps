@@ -1,0 +1,211 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > EtudiantServiceImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">tn.esprit.spring.kaddem.services</a>
+</div>
+
+<h1>Coverage Summary for Class: EtudiantServiceImpl (tn.esprit.spring.kaddem.services)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EtudiantServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    20%
+  </span>
+  <span class="absValue">
+    (2/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    7,1%
+  </span>
+  <span class="absValue">
+    (2/28)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">EtudiantServiceImpl$$EnhancerBySpringCGLIB$$d699ab14</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    20%
+  </span>
+  <span class="absValue">
+    (2/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    7,1%
+  </span>
+  <span class="absValue">
+    (2/28)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package tn.esprit.spring.kaddem.services;
+&nbsp;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import lombok.extern.slf4j.Slf4j;
+&nbsp;
+&nbsp;import tn.esprit.spring.kaddem.entities.Contrat;
+&nbsp;import tn.esprit.spring.kaddem.entities.Departement;
+&nbsp;import tn.esprit.spring.kaddem.entities.Equipe;
+&nbsp;import tn.esprit.spring.kaddem.entities.Etudiant;
+&nbsp;import tn.esprit.spring.kaddem.repositories.ContratRepository;
+&nbsp;import tn.esprit.spring.kaddem.repositories.DepartementRepository;
+&nbsp;import tn.esprit.spring.kaddem.repositories.EquipeRepository;
+&nbsp;import tn.esprit.spring.kaddem.repositories.EtudiantRepository;
+&nbsp;
+&nbsp;import javax.persistence.EntityNotFoundException;
+&nbsp;import javax.transaction.Transactional;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;
+&nbsp;@Service
+<b class="fc">&nbsp;@Slf4j</b>
+<b class="fc">&nbsp;public class EtudiantServiceImpl implements IEtudiantService{</b>
+&nbsp;	@Autowired
+&nbsp;	EtudiantRepository etudiantRepository ;
+&nbsp;	@Autowired
+&nbsp;	ContratRepository contratRepository;
+&nbsp;	@Autowired
+&nbsp;	EquipeRepository equipeRepository;
+&nbsp;    @Autowired
+&nbsp;    DepartementRepository departementRepository;
+&nbsp;	public List&lt;Etudiant&gt; retrieveAllEtudiants(){
+<b class="nc">&nbsp;	return (List&lt;Etudiant&gt;) etudiantRepository.findAll();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public Etudiant addEtudiant (Etudiant e){
+<b class="nc">&nbsp;		return etudiantRepository.save(e);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public Etudiant updateEtudiant (Etudiant e){
+<b class="nc">&nbsp;		return etudiantRepository.save(e);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	public Etudiant retrieveEtudiant(Integer idEtudiant) {
+<b class="nc">&nbsp;		Optional&lt;Etudiant&gt; optionalEtudiant = etudiantRepository.findById(idEtudiant);</b>
+&nbsp;
+<b class="nc">&nbsp;		if (optionalEtudiant.isPresent()) {</b>
+<b class="nc">&nbsp;			return optionalEtudiant.get();</b>
+&nbsp;		} else {
+&nbsp;			// Handle the case when the value is not present (e.g., return null or throw an exception)
+<b class="nc">&nbsp;			return null; // Or you can throw an exception here</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	public void removeEtudiant(Integer idEtudiant){
+<b class="nc">&nbsp;	Etudiant e=retrieveEtudiant(idEtudiant);</b>
+<b class="nc">&nbsp;	etudiantRepository.delete(e);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	public void assignEtudiantToDepartement(Integer etudiantId, Integer departementId) {
+<b class="nc">&nbsp;		Optional&lt;Etudiant&gt; etudiantOptional = etudiantRepository.findById(etudiantId);</b>
+<b class="nc">&nbsp;		Optional&lt;Departement&gt; departementOptional = departementRepository.findById(departementId);</b>
+&nbsp;
+<b class="nc">&nbsp;		if (etudiantOptional.isPresent() &amp;&amp; departementOptional.isPresent()) {</b>
+<b class="nc">&nbsp;			Etudiant etudiant = etudiantOptional.get();</b>
+<b class="nc">&nbsp;			Departement departement = departementOptional.get();</b>
+<b class="nc">&nbsp;			etudiant.setDepartement(departement);</b>
+<b class="nc">&nbsp;			etudiantRepository.save(etudiant);</b>
+<b class="nc">&nbsp;		} else {</b>
+<b class="nc">&nbsp;			throw new EntityNotFoundException(&quot;Etudient or Departement not found&quot;);</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	@Transactional
+&nbsp;	public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe) {
+<b class="nc">&nbsp;		Contrat c = contratRepository.findById(idContrat).orElse(null);</b>
+<b class="nc">&nbsp;		Equipe eq = equipeRepository.findById(idEquipe).orElse(null);</b>
+&nbsp;
+<b class="nc">&nbsp;		if (c != null &amp;&amp; eq != null) {</b>
+<b class="nc">&nbsp;			c.setEtudiant(e);</b>
+<b class="nc">&nbsp;			eq.getEtudiants().add(e);</b>
+<b class="nc">&nbsp;			return e;</b>
+&nbsp;		} else {
+<b class="nc">&nbsp;			throw new EntityNotFoundException(&quot;Contrat or Equipe not found&quot;);</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	public 	List&lt;Etudiant&gt; getEtudiantsByDepartement (Integer idDepartement){
+<b class="nc">&nbsp;return  etudiantRepository.findEtudiantsByDepartement_IdDepart((idDepartement));</b>
+&nbsp;	}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-02 02:57</div>
+</div>
+</body>
+</html>

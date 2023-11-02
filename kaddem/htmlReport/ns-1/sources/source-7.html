@@ -1,0 +1,92 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > IUniversiteService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">tn.esprit.spring.kaddem.services</a>
+</div>
+
+<h1>Coverage Summary for Class: IUniversiteService (tn.esprit.spring.kaddem.services)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">IUniversiteService</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package tn.esprit.spring.kaddem.services;
+&nbsp;
+&nbsp;import tn.esprit.spring.kaddem.entities.Departement;
+&nbsp;import tn.esprit.spring.kaddem.entities.Universite;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;
+&nbsp;public interface IUniversiteService {
+&nbsp;   public List&lt;Universite&gt; retrieveAllUniversites();
+&nbsp;
+&nbsp;    Universite addUniversite (Universite  u);
+&nbsp;
+&nbsp;    Universite updateUniversite (Universite  u);
+&nbsp;
+&nbsp;    Universite retrieveUniversite (Integer idUniversite);
+&nbsp;
+&nbsp;    public  void deleteUniversite(Integer idUniversite);
+&nbsp;
+&nbsp;    public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement);
+&nbsp;
+&nbsp;    public Set&lt;Departement&gt; retrieveDepartementsByUniversite(Integer idUniversite);
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-02 02:57</div>
+</div>
+</body>
+</html>
