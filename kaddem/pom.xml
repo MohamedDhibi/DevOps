@@ -10,11 +10,11 @@
     </parent>
     <groupId>tn.esprit.spring</groupId>
     <artifactId>kaddem</artifactId>
-    <version>0.0.1</version> <!-- Removed -SNAPSHOT -->
+    <version>2.0</version>
     <name>kaddem</name>
     <description>kaddem</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version> <!-- Updated to Java 11 -->
     </properties>
     <dependencies>
         <dependency>
