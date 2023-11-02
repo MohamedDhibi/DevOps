@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.spring.kaddem.dto.ContratDTO;
 import tn.esprit.spring.kaddem.entities.Contrat;
 import tn.esprit.spring.kaddem.services.IContratService;
 
@@ -29,9 +30,14 @@ public class ContratRestController {
 
 	// http://localhost:8089/Kaddem/econtrat/add-contrat
 	@PostMapping("/add-contrat")
-	public Contrat addContrat(@RequestBody Contrat c) {
-		return contratService.addContrat(c);
+	public Contrat addContrat(@RequestBody ContratDTO contratDTO) {
+		// Map the fields from ContratDTO to a Contrat entity or use a service method to create the entity.
+		Contrat contrat = mapDTOtoEntity(contratDTO);
+		return contratService.addContrat(contrat);
 	}
+
+
+
 
 
 	// http://localhost:8089/Kaddem/contrat/remove-contrat/1
@@ -42,10 +48,19 @@ public class ContratRestController {
 
 	// http://localhost:8089/Kaddem/contrat/update-contrat
 	@PutMapping("/update-contrat")
-	public Contrat updateContrat(@RequestBody Contrat c) {
-		return contratService.updateContrat(c);
+	public Contrat updateContrat(@RequestBody ContratDTO contratDTO) {
+		// Map the fields from ContratDTO to a Contrat entity or use a service method to update the entity.
+		Contrat contrat = mapDTOtoEntity(contratDTO);
+		return contratService.updateContrat(contrat);
 	}
 
+	private Contrat mapDTOtoEntity(ContratDTO contratDTO) {
+		Contrat contrat = new Contrat();
+		contrat.setDateDebutContrat(contratDTO.getDateDebutContrat());
+		contrat.setDateFinContrat(contratDTO.getDateFinContrat());
+		contrat.setMontantContrat(contratDTO.getMontantContrat());
+		return contrat;
+	}
 
 
 
