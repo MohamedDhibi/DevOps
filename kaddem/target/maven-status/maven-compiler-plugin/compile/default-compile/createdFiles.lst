@@ -7,13 +7,10 @@ tn\esprit\spring\kaddem\services\UniversiteServiceImpl.class
 tn\esprit\spring\kaddem\controllers\UniversiteRestController.class
 tn\esprit\spring\kaddem\controllers\EquipeRestController.class
 tn\esprit\spring\kaddem\controllers\EtudiantRestController.class
-tn\esprit\spring\kaddem\dto\BaseDTO.class
 tn\esprit\spring\kaddem\entities\Universite.class
 tn\esprit\spring\kaddem\repositories\EtudiantRepository.class
-tn\esprit\spring\kaddem\dto\ContratDTO.class
 tn\esprit\spring\kaddem\KaddemApplication.class
 tn\esprit\spring\kaddem\entities\DetailEquipe.class
-tn\esprit\spring\kaddem\dto\DepartementDTO.class
 tn\esprit\spring\kaddem\services\DepartementServiceImpl.class
 tn\esprit\spring\kaddem\entities\Equipe.class
 tn\esprit\spring\kaddem\services\IDepartementService.class
