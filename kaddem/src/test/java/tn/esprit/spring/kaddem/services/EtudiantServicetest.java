@@ -13,6 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.Test;
+import java.util.Optional;
+
+import java.util.ArrayList;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
@@ -53,4 +56,44 @@ class EtudiantServicetest {
         // Add assertions to check the result, if necessary
         // For example, you can check if the returned object is the same as the one you passed in.
         assertEquals(sampleEtudiant, result);
-}}
+}
+
+    @Test
+    void testUpdateEtudiant() {
+        // Create a sample Etudiant object
+        Etudiant sampleEtudiant = new Etudiant();
+
+        // Mock the behavior of the repository to return the same sampleEtudiant object when saved
+        when(etudiantRepository.save(sampleEtudiant)).thenReturn(sampleEtudiant);
+
+        // Call the method you want to test
+        Etudiant result = etudiantService.updateEtudiant(sampleEtudiant);
+
+        // Verify that the repository's save method was called once with the sampleEtudiant object
+        verify(etudiantRepository, times(1)).save(sampleEtudiant);
+
+        // Add assertions to check the result, if necessary
+        // For example, you can check if the returned object is the same as the sampleEtudiant.
+        assertEquals(sampleEtudiant, result);
+    }
+    @Test
+    void testRetrieveEtudiant() {
+        // Create a sample Etudiant object
+        Etudiant sampleEtudiant = new Etudiant();
+
+        // Mock the behavior of the repository to return the same sampleEtudiant object when findById is called
+        when(etudiantRepository.findById(anyInt())).thenReturn(Optional.of(sampleEtudiant));
+
+        // Call the method you want to test
+        Etudiant result = etudiantService.retrieveEtudiant(1); // Pass an arbitrary ID (1 in this case)
+
+        // Verify that the repository's findById method was called once with the provided ID
+        verify(etudiantRepository, times(1)).findById(1);
+
+        // Add assertions to check the result, if necessary
+        // For example, you can check if the returned object is the same as the sampleEtudiant.
+        assertEquals(sampleEtudiant, result);
+    }
+
+
+}
