@@ -79,6 +79,16 @@
     </dependencies>
     <build>
         <plugins>
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version> <!-- Use the version you prefer -->
+                <configuration>
+                    <source>11</source> <!-- Adjust to your Java version -->
+                    <target>11</target>
+                </configuration>
+            </plugin>
             <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
