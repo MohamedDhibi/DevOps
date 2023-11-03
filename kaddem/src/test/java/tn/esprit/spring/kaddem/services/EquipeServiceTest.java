@@ -18,6 +18,7 @@ import tn.esprit.spring.kaddem.repositories.EquipeRepository;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
@@ -60,4 +61,53 @@ class EquipeServiceTest {
         verify(equipeRepository, times(1)).save(any(Equipe.class));
     }
 
+    @Test
+    void updateEquipe() {
+        // Arrange
+        Equipe newEquipe = new Equipe("New Equipe", Niveau.JUNIOR);
+
+        Mockito.when(equipeRepository.save(newEquipe)).thenReturn(newEquipe);
+
+        // Act
+        Equipe updatedEquipe = equipeService.updateEquipe(newEquipe);
+
+        // Assert
+        assertNotNull(updatedEquipe);
+        assertEquals("New Equipe", updatedEquipe.getNomEquipe());
+    }
+
+    @Test
+    void retrieveEquipe() {
+        // Arrange
+        int EquipetId = 5;
+        Equipe newEquipe = new Equipe(EquipetId, "New Equipe 5", Niveau.JUNIOR);
+
+        Mockito.when(equipeRepository.findById(EquipetId)).thenReturn(Optional.of(newEquipe));
+
+        // Act
+        Equipe retrievedEquipe = equipeService.retrieveEquipe(EquipetId);
+
+        // Assert
+        assertNotNull(retrievedEquipe);
+        assertEquals("New Equipe 5", retrievedEquipe.getNomEquipe());
+    }
+
+    @Test
+    void deleteDepartement() {
+        // Arrange
+        int EquipetId = 6;
+        Equipe newEquipe = new Equipe(EquipetId, "New Equipe 6", Niveau.JUNIOR);
+
+        Mockito.when(equipeRepository.findById(EquipetId)).thenReturn(Optional.of(newEquipe));
+
+        // Act
+        equipeService.deleteEquipe(EquipetId);
+
+        // Assert
+        Mockito.verify(equipeRepository, Mockito.times(1)).delete(newEquipe);
+    }
+
+
 }
+
+
