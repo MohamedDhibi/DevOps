@@ -14,7 +14,7 @@ kaddem,tn.esprit.spring.kaddem.entities,Equipe,59,45,0,0,25,20,8,9,8,9
 kaddem,tn.esprit.spring.kaddem.entities,Departement,42,3,0,0,19,2,9,1,9,1
 kaddem,tn.esprit.spring.kaddem.entities,Etudiant,85,3,0,0,36,2,17,1,17,1
 kaddem,tn.esprit.spring.kaddem.entities,Specialite,0,44,0,0,0,2,0,1,0,1
-kaddem,tn.esprit.spring.kaddem.services,EquipeServiceImpl,167,33,27,1,38,7,21,5,7,5
+kaddem,tn.esprit.spring.kaddem.services,EquipeServiceImpl,152,48,27,1,34,11,19,7,5,7
 kaddem,tn.esprit.spring.kaddem.services,ContratServiceImpl,254,7,26,0,53,2,22,2,9,2
 kaddem,tn.esprit.spring.kaddem.services,UniversiteServiceImpl,92,3,6,0,19,2,10,1,7,1
 kaddem,tn.esprit.spring.kaddem.services,EtudiantServiceImpl,119,7,10,0,28,2,13,2,8,2

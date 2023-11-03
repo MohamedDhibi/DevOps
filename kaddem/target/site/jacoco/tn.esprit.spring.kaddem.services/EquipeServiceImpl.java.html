@@ -27,9 +27,9 @@ public class EquipeServiceImpl implements IEquipeService{
 	}
 
 	public  void deleteEquipe(Integer idEquipe){
-<span class="nc" id="L30">		Equipe e=retrieveEquipe(idEquipe);</span>
-<span class="nc" id="L31">		equipeRepository.delete(e);</span>
-<span class="nc" id="L32">	}</span>
+<span class="fc" id="L30">		Equipe e=retrieveEquipe(idEquipe);</span>
+<span class="fc" id="L31">		equipeRepository.delete(e);</span>
+<span class="fc" id="L32">	}</span>
 
 	public Equipe retrieveEquipe(Integer equipeId) {
 <span class="fc" id="L35">		Optional&lt;Equipe&gt; optionalEquipe = equipeRepository.findById(equipeId);</span>
@@ -45,7 +45,7 @@ public class EquipeServiceImpl implements IEquipeService{
 
 
 	public Equipe updateEquipe(Equipe e){
-<span class="nc" id="L48">	return (	equipeRepository.save(e));</span>
+<span class="fc" id="L48">	return (	equipeRepository.save(e));</span>
 	}
 
 	public void evoluerEquipes() {
