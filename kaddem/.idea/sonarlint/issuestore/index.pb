@@ -70,3 +70,5 @@ b
 2src/main/java/tn/esprit/spring/kaddem/dto/dto.java,f\e\febaced15ea2c4f03ce8adb5898a8ab0cbf9358b
 f
 6src/main/java/tn/esprit/spring/kaddem/dto/BaseDTO.java,6\5\65b2eeae939f1ac93a648589a4fcde3735b1c23f
+<
+settings.xml,1\d\1d784fce58c3719506730fb9749600554125b511
