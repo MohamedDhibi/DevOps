@@ -66,8 +66,6 @@ i
 9src/main/java/tn/esprit/spring/kaddem/dto/ContratDTO.java,4\e\4e38b8caa3303f5c228893ff99c9ade422ef7423
 m
 =src/main/java/tn/esprit/spring/kaddem/dto/DepartementDTO.java,9\4\94d4d381fba486db1d3fb7ad16175790364de8fe
-b
-2src/main/java/tn/esprit/spring/kaddem/dto/dto.java,f\e\febaced15ea2c4f03ce8adb5898a8ab0cbf9358b
 f
 6src/main/java/tn/esprit/spring/kaddem/dto/BaseDTO.java,6\5\65b2eeae939f1ac93a648589a4fcde3735b1c23f
 <

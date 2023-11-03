@@ -66,6 +66,7 @@
             <version>3.12.4</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
@@ -87,8 +88,15 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <!-- Add the Maven Surefire Plugin configuration here -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
         </plugins>
     </build>
+
     <!-- Deploy to Nexus -->
     <distributionManagement>
         <repository>
