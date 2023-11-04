@@ -28,8 +28,6 @@ Psrc/main/java/tn/esprit/spring/kaddem/controllers/DepartementRestController.jav
 Ksrc/main/java/tn/esprit/spring/kaddem/controllers/EquipeRestController.java,5\e\5ee8a705c1aa7ea7bff8eb3b589725e2927bff2c
 y
 Isrc/main/java/tn/esprit/spring/kaddem/repositories/ContratRepository.java,7\6\76b1fbd7bf5f949d046c5a9d0b95b5a5bdadd6ed
-n
->src/test/java/tn/esprit/spring/kaddem/services/EquipeTest.java,5\5\553953bc43073f17bd999954bc2a50d63a62347d
 8
 mvnw.cmd,1\f\1f1763f358c257ea3515417352b82b0165647ad1
 7
@@ -53,3 +51,5 @@ j
 :
 
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
