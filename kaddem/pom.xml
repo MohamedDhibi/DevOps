@@ -10,7 +10,7 @@
     </parent>
     <groupId>tn.esprit.spring</groupId>
     <artifactId>kaddem</artifactId>
-    <version>2</version>
+    <version>2.0-RELEASE</version>
     <name>kaddem</name>
     <description>kaddem</description>
     <properties>
@@ -46,10 +46,13 @@
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.6.9</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>5.6.0</version>
+            <version>3.12.4</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jacoco</groupId>
@@ -59,7 +62,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.0</version>
+            <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -94,25 +97,38 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version> <!-- Use the version you prefer -->
+                <configuration>
+                    <source>11</source> <!-- Adjust to your Java version -->
+                    <target>11</target>
+                </configuration>
+            </plugin>
+            <plugin>
+
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0</version>
             </plugin>
+            <!-- JaCoCo Maven Plugin for code coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.11</version>
+                <version>0.8.6</version> <!-- Adjust the version if needed -->
                 <executions>
                     <execution>
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
+                        <phase>test-compile</phase>
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>prepare-package</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
+                        <phase>test</phase>
                     </execution>
                 </executions>
             </plugin>

@@ -7,21 +7,26 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+
+
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import tn.esprit.spring.kaddem.entities.Equipe;
 import tn.esprit.spring.kaddem.entities.Niveau;
 import tn.esprit.spring.kaddem.repositories.EquipeRepository;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
+@RunWith(SpringRunner.class)
 class EquipeServiceTest {
     @Mock
     EquipeRepository equipeRepository;
@@ -42,7 +47,9 @@ class EquipeServiceTest {
 
         // Assert
         assertEquals(2, retrievedEquipes.size());
-        verify(equipeRepository, times(1)).findAll();
+        assertEquals("Equipe 1", retrievedEquipes.get(0).getNomEquipe());
+        assertEquals("Equipe 2", retrievedEquipes.get(1).getNomEquipe());
+
     }
 
     @Test

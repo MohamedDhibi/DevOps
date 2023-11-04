@@ -10,7 +10,7 @@ kaddem,tn.esprit.spring.kaddem.entities,Niveau,0,34,0,0,0,2,0,1,0,1
 kaddem,tn.esprit.spring.kaddem.entities,Contrat,104,3,0,0,37,2,17,1,17,1
 kaddem,tn.esprit.spring.kaddem.entities,DetailEquipe,49,3,0,0,21,2,10,1,10,1
 kaddem,tn.esprit.spring.kaddem.entities,Option,0,44,0,0,0,2,0,1,0,1
-kaddem,tn.esprit.spring.kaddem.entities,Equipe,59,45,0,0,25,20,8,9,8,9
+kaddem,tn.esprit.spring.kaddem.entities,Equipe,77,27,0,0,33,12,13,4,13,4
 kaddem,tn.esprit.spring.kaddem.entities,Departement,42,3,0,0,19,2,9,1,9,1
 kaddem,tn.esprit.spring.kaddem.entities,Etudiant,85,3,0,0,36,2,17,1,17,1
 kaddem,tn.esprit.spring.kaddem.entities,Specialite,0,44,0,0,0,2,0,1,0,1
