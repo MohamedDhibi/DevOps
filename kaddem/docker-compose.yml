@@ -1,0 +1,31 @@
+version: "2.4"
+
+volumes:
+  db:
+
+services:
+  kadem:
+    image: jihensouissi/kaddemproject:v2
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - 8087:8087
+    environment:
+      - SPRING_DATASOURCE_URL=mysql://localhost:3306/kaddemm?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+
+
+
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: kaddemm
+      MYSQL_ROOT_PASSWORD: root
