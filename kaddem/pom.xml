@@ -63,11 +63,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.11</version>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.7.0</version>
@@ -88,7 +83,18 @@
     </dependencies>
 
     <build>
+
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.10.1</version> <!-- Use the version you prefer -->
+                        <configuration>
+                                <source>1.8</source> <!-- Set the source version to 1.8 -->
+                                <target>1.8</target> <!-- Set the target version to 1.8 -->
+                        </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -128,11 +134,6 @@
             <groupId>org.apache.maven.pLugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                    </includes>
-                </configuration>
             </plugin>
         </plugins>
     </build>
