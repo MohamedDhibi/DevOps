@@ -80,20 +80,13 @@
             <scope>test</scope>
         </dependency>
 
+
     </dependencies>
 
     <build>
 
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.10.1</version> <!-- Use the version you prefer -->
-                        <configuration>
-                                <source>1.8</source> <!-- Set the source version to 1.8 -->
-                                <target>1.8</target> <!-- Set the target version to 1.8 -->
-                        </configuration>
-            </plugin>
+
 
             <plugin>
                 <groupId>org.springframework.boot</groupId>
