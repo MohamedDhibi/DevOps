@@ -1,0 +1,185 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > EquipeServiceImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">tn.esprit.spring.kaddem.services</a>
+</div>
+
+<h1>Coverage Summary for Class: EquipeServiceImpl (tn.esprit.spring.kaddem.services)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EquipeServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    25%
+  </span>
+  <span class="absValue">
+    (2/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    5,7%
+  </span>
+  <span class="absValue">
+    (2/35)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package tn.esprit.spring.kaddem.services;
+&nbsp;
+&nbsp;import lombok.AllArgsConstructor;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import lombok.extern.slf4j.Slf4j;
+&nbsp;import tn.esprit.spring.kaddem.entities.Contrat;
+&nbsp;import tn.esprit.spring.kaddem.entities.Equipe;
+&nbsp;import tn.esprit.spring.kaddem.entities.Etudiant;
+&nbsp;import tn.esprit.spring.kaddem.entities.Niveau;
+&nbsp;import tn.esprit.spring.kaddem.repositories.EquipeRepository;
+&nbsp;
+&nbsp;import java.util.Date;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;
+<b class="fc">&nbsp;@Slf4j</b>
+<b class="fc">&nbsp;@AllArgsConstructor</b>
+&nbsp;@Service
+&nbsp;public class EquipeServiceImpl implements IEquipeService{
+&nbsp;	EquipeRepository equipeRepository;
+&nbsp;
+&nbsp;
+&nbsp;	public List&lt;Equipe&gt; retrieveAllEquipes(){
+<b class="nc">&nbsp;	return  (List&lt;Equipe&gt;) equipeRepository.findAll();</b>
+&nbsp;	}
+&nbsp;	public Equipe addEquipe(Equipe e){
+<b class="nc">&nbsp;		return (equipeRepository.save(e));</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public  void deleteEquipe(Integer idEquipe){
+<b class="nc">&nbsp;		Equipe e=retrieveEquipe(idEquipe);</b>
+<b class="nc">&nbsp;		equipeRepository.delete(e);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public Equipe retrieveEquipe(Integer equipeId){
+<b class="nc">&nbsp;		return equipeRepository.findById(equipeId).get();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public Equipe updateEquipe(Equipe e){
+<b class="nc">&nbsp;	return (	equipeRepository.save(e));</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	public void evoluerEquipes(){
+<b class="nc">&nbsp;		List&lt;Equipe&gt; equipes = (List&lt;Equipe&gt;) equipeRepository.findAll();</b>
+<b class="nc">&nbsp;		for (Equipe equipe : equipes) {</b>
+<b class="nc">&nbsp;			if ((equipe.getNiveau().equals(Niveau.JUNIOR)) || (equipe.getNiveau().equals(Niveau.SENIOR))) {</b>
+<b class="nc">&nbsp;				List&lt;Etudiant&gt; etudiants = (List&lt;Etudiant&gt;) equipe.getEtudiants();</b>
+<b class="nc">&nbsp;				Integer nbEtudiantsAvecContratsActifs=0;</b>
+<b class="nc">&nbsp;				for (Etudiant etudiant : etudiants) {</b>
+<b class="nc">&nbsp;					Set&lt;Contrat&gt; contrats = etudiant.getContrats();</b>
+&nbsp;					//Set&lt;Contrat&gt; contratsActifs=null;
+<b class="nc">&nbsp;					for (Contrat contrat : contrats) {</b>
+<b class="nc">&nbsp;						Date dateSysteme = new Date();</b>
+<b class="nc">&nbsp;						long difference_In_Time = dateSysteme.getTime() - contrat.getDateFinContrat().getTime();</b>
+<b class="nc">&nbsp;						long difference_In_Years = (difference_In_Time / (1000l * 60 * 60 * 24 * 365));</b>
+<b class="nc">&nbsp;						if ((contrat.getArchive() == false) &amp;&amp; (difference_In_Years &gt; 1)) {</b>
+&nbsp;							//	contratsActifs.add(contrat);
+<b class="nc">&nbsp;							nbEtudiantsAvecContratsActifs++;</b>
+<b class="nc">&nbsp;							break;</b>
+&nbsp;						}
+<b class="nc">&nbsp;						if (nbEtudiantsAvecContratsActifs &gt;= 3) break;</b>
+<b class="nc">&nbsp;					}</b>
+<b class="nc">&nbsp;				}</b>
+<b class="nc">&nbsp;					if (nbEtudiantsAvecContratsActifs &gt;= 3){</b>
+<b class="nc">&nbsp;						if (equipe.getNiveau().equals(Niveau.JUNIOR)){</b>
+<b class="nc">&nbsp;							equipe.setNiveau(Niveau.SENIOR);</b>
+<b class="nc">&nbsp;							equipeRepository.save(equipe);</b>
+<b class="nc">&nbsp;							break;</b>
+&nbsp;						}
+<b class="nc">&nbsp;						if (equipe.getNiveau().equals(Niveau.SENIOR)){</b>
+<b class="nc">&nbsp;							equipe.setNiveau(Niveau.EXPERT);</b>
+<b class="nc">&nbsp;							equipeRepository.save(equipe);</b>
+<b class="nc">&nbsp;							break;</b>
+&nbsp;						}
+&nbsp;				}
+&nbsp;			}
+&nbsp;
+<b class="nc">&nbsp;		}</b>
+&nbsp;
+&nbsp;	}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-05 15:06</div>
+</div>
+</body>
+</html>

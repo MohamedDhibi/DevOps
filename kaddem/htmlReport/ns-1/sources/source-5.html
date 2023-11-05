@@ -1,0 +1,156 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > UniversiteServiceImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">tn.esprit.spring.kaddem.services</a>
+</div>
+
+<h1>Coverage Summary for Class: UniversiteServiceImpl (tn.esprit.spring.kaddem.services)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UniversiteServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    12,5%
+  </span>
+  <span class="absValue">
+    (1/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    7,7%
+  </span>
+  <span class="absValue">
+    (1/13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package tn.esprit.spring.kaddem.services;
+&nbsp;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;import tn.esprit.spring.kaddem.entities.Departement;
+&nbsp;import tn.esprit.spring.kaddem.entities.Universite;
+&nbsp;import tn.esprit.spring.kaddem.repositories.DepartementRepository;
+&nbsp;import tn.esprit.spring.kaddem.repositories.UniversiteRepository;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;
+&nbsp;@Service
+&nbsp;public class UniversiteServiceImpl implements IUniversiteService{
+&nbsp;@Autowired
+&nbsp;    UniversiteRepository universiteRepository;
+&nbsp;@Autowired
+&nbsp;    DepartementRepository departementRepository;
+<b class="fc">&nbsp;    public UniversiteServiceImpl() {</b>
+&nbsp;        // TODO Auto-generated constructor stub
+&nbsp;    }
+&nbsp;  public   List&lt;Universite&gt; retrieveAllUniversites(){
+<b class="nc">&nbsp;return (List&lt;Universite&gt;) universiteRepository.findAll();</b>
+&nbsp;    }
+&nbsp;
+&nbsp; public    Universite addUniversite (Universite  u){
+<b class="nc">&nbsp;return  (universiteRepository.save(u));</b>
+&nbsp;    }
+&nbsp;
+&nbsp; public    Universite updateUniversite (Universite  u){
+<b class="nc">&nbsp;     return  (universiteRepository.save(u));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;  public Universite retrieveUniversite (Integer idUniversite){
+<b class="nc">&nbsp;Universite u = universiteRepository.findById(idUniversite).get();</b>
+<b class="nc">&nbsp;return  u;</b>
+&nbsp;    }
+&nbsp;    public  void deleteUniversite(Integer idUniversite){
+<b class="nc">&nbsp;        universiteRepository.delete(retrieveUniversite(idUniversite));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement){
+<b class="nc">&nbsp;        Universite u= universiteRepository.findById(idUniversite).orElse(null);</b>
+<b class="nc">&nbsp;        Departement d= departementRepository.findById(idDepartement).orElse(null);</b>
+<b class="nc">&nbsp;        u.getDepartements().add(d);</b>
+<b class="nc">&nbsp;        universiteRepository.save(u);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Set&lt;Departement&gt; retrieveDepartementsByUniversite(Integer idUniversite){
+<b class="nc">&nbsp;Universite u=universiteRepository.findById(idUniversite).orElse(null);</b>
+<b class="nc">&nbsp;return u.getDepartements();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-05 15:06</div>
+</div>
+</body>
+</html>

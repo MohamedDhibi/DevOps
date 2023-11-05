@@ -31,7 +31,7 @@ class EtudiantServiceTest {
 
     @InjectMocks
     EtudiantServiceImpl etudiantService; // The service to be tested
-    @Mock
+   /* @Mock
     DepartementRepository departementRepository ;
     @InjectMocks
     DepartementServiceImpl departementService;
@@ -43,6 +43,7 @@ class EtudiantServiceTest {
     EquipeRepository equipeRepository ;
     @InjectMocks
     EquipeServiceImpl equipeService;// The service to be tested
+*/
 
     /*@Test
     void testCreateEtudiant() {
@@ -75,7 +76,7 @@ class EtudiantServiceTest {
         // Add assertions to check the result, if necessary
         // For example, you can check if the returned object is the same as the one you passed in.
         assertEquals(sampleEtudiant, result);
-}
+    }
 
     @Test
     void testUpdateEtudiant() {
