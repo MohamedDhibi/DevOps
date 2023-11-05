@@ -1,0 +1,9 @@
+
+a
+java:S2259G"?A "NullPointerException" could be thrown; "c" is nullable here.(ÄëÖ’øÿÿÿÿ8ÆÝïƒº1
+b
+java:S2259H"@A "NullPointerException" could be thrown; "eq" is nullable here.(“³›üûÿÿÿÿ8ÆÝïƒº1
+c
+java:S2259@"FA "NullPointerException" could be thrown; "etudiant" is nullable here.(À÷Òˆ8ÆÝïƒº1
+r
+java:S36555"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ö²Ð”ýÿÿÿÿ8ÇÝïƒº1

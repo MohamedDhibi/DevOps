@@ -17,12 +17,18 @@ import java.util.Set;
 @Slf4j
 @Service
 public class ContratServiceImpl implements IContratService{
-@Autowired
-ContratRepository contratRepository;
-@Autowired
+	@Autowired
+	ContratRepository contratRepository;
+	@Autowired
 	EtudiantRepository etudiantRepository;
+
+
+	public ContratServiceImpl()
+	{
+		//heyyy
+	}
 	public List<Contrat> retrieveAllContrats(){
-		return (List<Contrat>) contratRepository.findAll();
+		return contratRepository.findAll();
 	}
 
 	public Contrat updateContrat (Contrat  ce){
@@ -47,11 +53,11 @@ ContratRepository contratRepository;
 	public Contrat affectContratToEtudiant (Integer idContrat, String nomE, String prenomE){
 		Etudiant e=etudiantRepository.findByNomEAndPrenomE(nomE, prenomE);
 		Contrat ce=contratRepository.findByIdContrat(idContrat);
-		Set<Contrat> contrats= e.getContrats();
+		Set<Contrat> contrats= e.getcontrats();
 		Integer nbContratssActifs=0;
-		if (contrats.size()!=0) {
+		if (contrats.isEmpty()) {
 			for (Contrat contrat : contrats) {
-				if (((contrat.getArchive())!=null)&& (contrat.getArchive()))  {
+				if (((contrat.getArchive())!=null)&& (Boolean.TRUE.equals(contrat.getArchive())))  {
 					nbContratssActifs++;
 				}
 			}
@@ -71,7 +77,7 @@ ContratRepository contratRepository;
 		List<Contrat>contratsAarchiver=null;
 		for (Contrat contrat : contrats) {
 			Date dateSysteme = new Date();
-			if (!contrat.getArchive()) {
+			if (Boolean.TRUE.equals(contrat.getArchive())) {
 				long differenceInTime = dateSysteme.getTime() - contrat.getDateFinContrat().getTime();
 				long differenceInDays = (differenceInTime / (1000 * 60 * 60 * 24)) % 365;
 				if (differenceInDays==15){

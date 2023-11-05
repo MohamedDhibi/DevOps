@@ -14,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.kaddem.entities.Contrat;
 import tn.esprit.spring.kaddem.entities.Specialite;
 import tn.esprit.spring.kaddem.repositories.ContratRepository;
+import tn.esprit.spring.kaddem.repositories.EtudiantRepository;
 import tn.esprit.spring.kaddem.services.ContratServiceImpl;
 import tn.esprit.spring.kaddem.services.IContratService;
 
@@ -28,11 +29,15 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
  class TestContratWithMockito {
 
-    @InjectMocks
-    private IContratService contratService = new ContratServiceImpl();
+
 
     @Mock
     private ContratRepository contratRepository;
+    @Mock
+    private EtudiantRepository etudiantRepository ;
+
+    @InjectMocks
+    private IContratService contratService = new ContratServiceImpl();
 
     @Test
     void testRetrieveAllContrats() {

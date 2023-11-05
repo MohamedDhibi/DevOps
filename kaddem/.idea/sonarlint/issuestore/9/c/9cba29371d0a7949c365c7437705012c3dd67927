@@ -1,0 +1,11 @@
+
+a
+java:S2259,"?A "NullPointerException" could be thrown; "u" is nullable here.(Ñ’§øûÿÿÿÿ8™áïƒº1
+\
+java:S22592"?A "NullPointerException" could be thrown; "u" is nullable here.(‡ÍéŒ8šáïƒº1
+m
+java:S3655#"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(öˆæ¼8›áïƒº1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8œáïƒº1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8œáïƒº1
