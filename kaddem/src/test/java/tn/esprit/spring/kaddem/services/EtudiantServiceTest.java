@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import tn.esprit.spring.kaddem.entities.*;
 import tn.esprit.spring.kaddem.repositories.ContratRepository;
 import tn.esprit.spring.kaddem.repositories.DepartementRepository;
@@ -24,6 +25,7 @@ import java.util.Optional;
 import java.util.ArrayList;
 
 @SpringBootTest
+@ExtendWith(SpringExtension.class)
 @ExtendWith(MockitoExtension.class)
 class EtudiantServiceTest {
     @Mock
