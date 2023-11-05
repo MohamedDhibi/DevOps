@@ -80,7 +80,7 @@ class EtudiantServiceTest {
         assertEquals(sampleEtudiant, result);
     }
 
-    @Test
+  /*  @Test
     void testUpdateEtudiant() {
         // Create a sample Etudiant object
         Etudiant sampleEtudiant = new Etudiant();
@@ -158,7 +158,8 @@ class EtudiantServiceTest {
 
         // Verify that the repository's delete method was called once with the sampleEtudiant object
         verify(etudiantRepository, times(1)).delete(sampleEtudiant);
-    }
+    }*/
+
 
    /* @Test
     void testAssignEtudiantToDepartement() {

@@ -29,7 +29,7 @@ import java.util.List;
     @Autowired
     DepartementRepository departementRepository;
 	public List&lt;Etudiant&gt; retrieveAllEtudiants(){
-<span class="fc" id="L32">	return (List&lt;Etudiant&gt;) etudiantRepository.findAll();</span>
+<span class="nc" id="L32">	return (List&lt;Etudiant&gt;) etudiantRepository.findAll();</span>
 	}
 
 	public Etudiant addEtudiant (Etudiant e){
@@ -37,17 +37,17 @@ import java.util.List;
 	}
 
 	public Etudiant updateEtudiant (Etudiant e){
-<span class="fc" id="L40">		return etudiantRepository.save(e);</span>
+<span class="nc" id="L40">		return etudiantRepository.save(e);</span>
 	}
 
 	public Etudiant retrieveEtudiant(Integer  idEtudiant){
-<span class="fc" id="L44">		return etudiantRepository.findById(idEtudiant).orElse(null);</span>
+<span class="nc" id="L44">		return etudiantRepository.findById(idEtudiant).orElse(null);</span>
 	}
 
 	public void removeEtudiant(Integer idEtudiant){
-<span class="fc" id="L48">	Etudiant e=retrieveEtudiant(idEtudiant);</span>
-<span class="fc" id="L49">	etudiantRepository.delete(e);</span>
-<span class="fc" id="L50">	}</span>
+<span class="nc" id="L48">	Etudiant e=retrieveEtudiant(idEtudiant);</span>
+<span class="nc" id="L49">	etudiantRepository.delete(e);</span>
+<span class="nc" id="L50">	}</span>
 
 	public void assignEtudiantToDepartement (Integer etudiantId, Integer departementId){
 <span class="nc" id="L53">		Etudiant etudiant = etudiantRepository.findById(etudiantId).orElse(null);</span>
