@@ -43,34 +43,30 @@ public class ContratRestController {
 	// http://localhost:8089/Kaddem/contrat/update-contrat
 	@PutMapping("/update-contrat")
 	public Contrat updateContrat(@RequestBody Contrat c) {
-		Contrat contrat= contratService.updateContrat(c);
-		return contrat;
+		return contratService.updateContrat(c);
 	}
 
-		/*@PutMapping(value = "/assignContratToEtudiant/{ce}/{nomE}/{prenomE}")
-		public Contrat assignContratToEtudiant (Contrat ce, String nomE, String prenomE){
-		return 	(contratService.affectContratToEtudiant(ce, nomE, prenomE));
-		}*/
+
+
 
 	@PutMapping(value = "/assignContratToEtudiant/{idContrat}/{nomE}/{prenomE}")
 	public Contrat assignContratToEtudiant (Integer idContrat, String nomE, String prenomE){
-	//	Contrat c= contratService.affectContratToEtudiant()
+		//	Contrat c= contratService.affectContratToEtudiant()
 		return 	(contratService.affectContratToEtudiant(idContrat, nomE, prenomE));
 	}
 
 	//The most common ISO Date Format yyyy-MM-dd — for example, "2000-10-31".
-		@GetMapping(value = "/getnbContratsValides/{startDate}/{endDate}")
-		public Integer getnbContratsValides(@PathVariable(name = "startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
-										  @PathVariable(name = "endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
+	@GetMapping(value = "/getnbContratsValides/{startDate}/{endDate}")
+	public Integer getnbContratsValides(@PathVariable(name = "startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
+										@PathVariable(name = "endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
 
-			return contratService.nbContratsValides(startDate, endDate);
-		}
+		return contratService.nbContratsValides(startDate, endDate);
+	}
 
-    //Only no-arg methods may be annotated with @Scheduled
-    @Scheduled(cron="0 0 13 * * *")//(cron="0 0 13 * * ?")(fixedRate =21600)
+	//Only no-arg methods may be annotated with @Scheduled
+	@Scheduled(cron="0 0 13 * * *")//(cron="0 0 13 * * ?")(fixedRate =21600)
 	@PutMapping(value = "/majStatusContrat")
 	public void majStatusContrat (){
-		//return 	(contratService.affectContratToEtudiant(ce, nomE, prenomE));
 		contratService.retrieveAndUpdateStatusContrat();
 
 	}
@@ -80,10 +76,9 @@ public class ContratRestController {
 	@GetMapping("/calculChiffreAffaireEntreDeuxDate/{startDate}/{endDate}")
 	@ResponseBody
 	public float calculChiffreAffaireEntreDeuxDates(@PathVariable(name = "startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
-	@PathVariable(name = "endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
+													@PathVariable(name = "endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
 
 		return contratService.getChiffreAffaireEntreDeuxDates(startDate, endDate);
 	}
 }
-
 
