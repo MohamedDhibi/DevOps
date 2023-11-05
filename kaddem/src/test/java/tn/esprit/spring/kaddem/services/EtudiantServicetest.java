@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-class EtudiantServicetest {
+class EtudiantServiceTest {
     @Mock
     EtudiantRepository etudiantRepository; // Mock the repository
 
