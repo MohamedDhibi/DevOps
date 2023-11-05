@@ -15,33 +15,30 @@ public class DepartementRestController {
 	// http://localhost:8089/Kaddem/departement/retrieve-all-departements
 	@GetMapping(&quot;/retrieve-all-departements&quot;)
 	public List&lt;Departement&gt; getDepartements() {
-<span class="nc" id="L18">		List&lt;Departement&gt; listDepartements = departementService.retrieveAllDepartements();</span>
-<span class="nc" id="L19">		return listDepartements;</span>
+<span class="nc" id="L18">		return departementService.retrieveAllDepartements();</span>
 	}
 	// http://localhost:8089/Kaddem/departement/retrieve-departement/8
 	@GetMapping(&quot;/retrieve-departement/{departement-id}&quot;)
 	public Departement retrieveDepartement(@PathVariable(&quot;departement-id&quot;) Integer departementId) {
-<span class="nc" id="L24">		return departementService.retrieveDepartement(departementId);</span>
+<span class="nc" id="L23">		return departementService.retrieveDepartement(departementId);</span>
 	}
 
 	// http://localhost:8089/Kaddem/departement/add-departement
 	@PostMapping(&quot;/add-departement&quot;)
 	public Departement addDepartement(@RequestBody Departement d) {
-<span class="nc" id="L30">		Departement departement = departementService.addDepartement(d);</span>
-<span class="nc" id="L31">		return departement;</span>
+<span class="nc" id="L29">		return departementService.addDepartement(d);</span>
 	}
 
 	// http://localhost:8089/Kaddem/departement/remove-departement/1
 	@DeleteMapping(&quot;/remove-departement/{departement-id}&quot;)
 	public void removeDepartement(@PathVariable(&quot;departement-id&quot;) Integer departementId) {
-<span class="nc" id="L37">		departementService.deleteDepartement(departementId);</span>
-<span class="nc" id="L38">	}</span>
+<span class="nc" id="L35">		departementService.deleteDepartement(departementId);</span>
+<span class="nc" id="L36">	}</span>
 
 	// http://localhost:8089/Kaddem/departement/update-departement
 	@PutMapping(&quot;/update-departement&quot;)
 	public Departement updateDepartement(@RequestBody Departement e) {
-<span class="nc" id="L43">		Departement departement= departementService.updateDepartement(e);</span>
-<span class="nc" id="L44">		return departement;</span>
+<span class="nc" id="L41">		return departementService.updateDepartement(e);</span>
 	}
 }
 

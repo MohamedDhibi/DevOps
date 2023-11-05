@@ -17,40 +17,39 @@ public class Departement implements Serializable{
     @JsonIgnore
     private Set&lt;Etudiant&gt; etudiants;
 <span class="fc" id="L19">    public Departement() {</span>
-        // TODO Auto-generated constructor stub
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L20">    }</span>
 
     public Departement(String nomDepart) {
-<span class="nc" id="L24">        super();</span>
-<span class="nc" id="L25">        this.nomDepart = nomDepart;</span>
-<span class="nc" id="L26">    }</span>
+<span class="nc" id="L23">        super();</span>
+<span class="nc" id="L24">        this.nomDepart = nomDepart;</span>
+<span class="nc" id="L25">    }</span>
 
     public Departement(Integer idDepart, String nomDepart) {
-<span class="nc" id="L29">        super();</span>
-<span class="nc" id="L30">        this.idDepart = idDepart;</span>
-<span class="nc" id="L31">        this.nomDepart = nomDepart;</span>
-<span class="nc" id="L32">    }</span>
+<span class="nc" id="L28">        super();</span>
+<span class="nc" id="L29">        this.idDepart = idDepart;</span>
+<span class="nc" id="L30">        this.nomDepart = nomDepart;</span>
+<span class="nc" id="L31">    }</span>
 
     public Set&lt;Etudiant&gt; getEtudiants() {
-<span class="nc" id="L35">        return etudiants;</span>
+<span class="nc" id="L34">        return etudiants;</span>
     }
 
     public void setEtudiants(Set&lt;Etudiant&gt; etudiants) {
-<span class="nc" id="L39">        this.etudiants = etudiants;</span>
-<span class="nc" id="L40">    }</span>
+<span class="nc" id="L38">        this.etudiants = etudiants;</span>
+<span class="nc" id="L39">    }</span>
 
     public Integer getIdDepart() {
-<span class="nc" id="L43">        return idDepart;</span>
+<span class="nc" id="L42">        return idDepart;</span>
     }
     public void setIdDepart(Integer idDepart) {
-<span class="nc" id="L46">        this.idDepart = idDepart;</span>
-<span class="nc" id="L47">    }</span>
+<span class="nc" id="L45">        this.idDepart = idDepart;</span>
+<span class="nc" id="L46">    }</span>
     public String getNomDepart() {
-<span class="nc" id="L49">        return nomDepart;</span>
+<span class="nc" id="L48">        return nomDepart;</span>
     }
     public void setNomDepart(String nomDepart) {
-<span class="nc" id="L52">        this.nomDepart = nomDepart;</span>
-<span class="nc" id="L53">    }</span>
+<span class="nc" id="L51">        this.nomDepart = nomDepart;</span>
+<span class="nc" id="L52">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

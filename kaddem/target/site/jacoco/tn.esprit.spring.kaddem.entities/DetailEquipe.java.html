@@ -14,48 +14,47 @@ public class DetailEquipe implements Serializable{
     @OneToOne(mappedBy=&quot;detailEquipe&quot;)
     private Equipe equipe;
 <span class="fc" id="L16">    public DetailEquipe() {</span>
-        // TODO Auto-generated constructor stub
-<span class="fc" id="L18">    }</span>
+<span class="fc" id="L17">    }</span>
 
     public DetailEquipe(Integer salle, String thematique) {
-<span class="nc" id="L21">        super();</span>
-<span class="nc" id="L22">        this.salle = salle;</span>
-<span class="nc" id="L23">        this.thematique = thematique;</span>
-<span class="nc" id="L24">    }</span>
+<span class="nc" id="L20">        super();</span>
+<span class="nc" id="L21">        this.salle = salle;</span>
+<span class="nc" id="L22">        this.thematique = thematique;</span>
+<span class="nc" id="L23">    }</span>
 
     public DetailEquipe(Integer idDetailEquipe, Integer salle, String thematique) {
-<span class="nc" id="L27">        super();</span>
-<span class="nc" id="L28">        this.idDetailEquipe = idDetailEquipe;</span>
-<span class="nc" id="L29">        this.salle = salle;</span>
-<span class="nc" id="L30">        this.thematique = thematique;</span>
-<span class="nc" id="L31">    }</span>
+<span class="nc" id="L26">        super();</span>
+<span class="nc" id="L27">        this.idDetailEquipe = idDetailEquipe;</span>
+<span class="nc" id="L28">        this.salle = salle;</span>
+<span class="nc" id="L29">        this.thematique = thematique;</span>
+<span class="nc" id="L30">    }</span>
 
     public Equipe getEquipe() {
-<span class="nc" id="L34">        return equipe;</span>
+<span class="nc" id="L33">        return equipe;</span>
     }
 
     public void setEquipe(Equipe equipe) {
-<span class="nc" id="L38">        this.equipe = equipe;</span>
-<span class="nc" id="L39">    }</span>
+<span class="nc" id="L37">        this.equipe = equipe;</span>
+<span class="nc" id="L38">    }</span>
 
     public Integer getIdDetailEquipe() {
-<span class="nc" id="L42">        return idDetailEquipe;</span>
+<span class="nc" id="L41">        return idDetailEquipe;</span>
     }
     public void setIdDetailEquipe(Integer idDetailEquipe) {
-<span class="nc" id="L45">        this.idDetailEquipe = idDetailEquipe;</span>
-<span class="nc" id="L46">    }</span>
+<span class="nc" id="L44">        this.idDetailEquipe = idDetailEquipe;</span>
+<span class="nc" id="L45">    }</span>
     public Integer getSalle() {
-<span class="nc" id="L48">        return salle;</span>
+<span class="nc" id="L47">        return salle;</span>
     }
     public void setSalle(Integer salle) {
-<span class="nc" id="L51">        this.salle = salle;</span>
-<span class="nc" id="L52">    }</span>
+<span class="nc" id="L50">        this.salle = salle;</span>
+<span class="nc" id="L51">    }</span>
     public String getThematique() {
-<span class="nc" id="L54">        return thematique;</span>
+<span class="nc" id="L53">        return thematique;</span>
     }
     public void setThematique(String thematique) {
-<span class="nc" id="L57">        this.thematique = thematique;</span>
-<span class="nc" id="L58">    }</span>
+<span class="nc" id="L56">        this.thematique = thematique;</span>
+<span class="nc" id="L57">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

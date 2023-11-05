@@ -19,45 +19,42 @@ public class UniversiteRestController {
 	// http://localhost:8089/Kaddem/universite/retrieve-all-universites
 	@GetMapping(&quot;/retrieve-all-universites&quot;)
 	public List&lt;Universite&gt; getUniversites() {
-<span class="nc" id="L22">		List&lt;Universite&gt; listUniversites = universiteService.retrieveAllUniversites();</span>
-<span class="nc" id="L23">		return listUniversites;</span>
+<span class="nc" id="L22">		return universiteService.retrieveAllUniversites();</span>
 	}
 	// http://localhost:8089/Kaddem/universite/retrieve-universite/8
 	@GetMapping(&quot;/retrieve-universite/{universite-id}&quot;)
 	public Universite retrieveUniversite(@PathVariable(&quot;universite-id&quot;) Integer universiteId) {
-<span class="nc" id="L28">		return universiteService.retrieveUniversite(universiteId);</span>
+<span class="nc" id="L27">		return universiteService.retrieveUniversite(universiteId);</span>
 	}
 
 	// http://localhost:8089/Kaddem/universite/add-universite
 	@PostMapping(&quot;/add-universite&quot;)
 	public Universite addUniversite(@RequestBody Universite u) {
-<span class="nc" id="L34">		Universite universite = universiteService.addUniversite(u);</span>
-<span class="nc" id="L35">		return universite;</span>
+<span class="nc" id="L33">		return universiteService.addUniversite(u);</span>
 	}
 
 	// http://localhost:8089/Kaddem/universite/remove-universite/1
 	@DeleteMapping(&quot;/remove-universite/{universite-id}&quot;)
 	public void removeUniversite(@PathVariable(&quot;universite-id&quot;) Integer universiteId) {
-<span class="nc" id="L41">		universiteService.deleteUniversite(universiteId);</span>
-<span class="nc" id="L42">	}</span>
+<span class="nc" id="L39">		universiteService.deleteUniversite(universiteId);</span>
+<span class="nc" id="L40">	}</span>
 
 	// http://localhost:8089/Kaddem/universite/update-universite
 	@PutMapping(&quot;/update-universite&quot;)
 	public Universite updateUniversite(@RequestBody Universite u) {
-<span class="nc" id="L47">		Universite u1= universiteService.updateUniversite(u);</span>
-<span class="nc" id="L48">		return u1;</span>
+<span class="nc" id="L45">		return universiteService.updateUniversite(u);</span>
 	}
 
 	//@PutMapping(&quot;/affecter-etudiant-departement&quot;)
 	@PutMapping(value=&quot;/affecter-universite-departement/{universiteId}/{departementId}&quot;)
 	public void affectertUniversiteToDepartement(@PathVariable(&quot;universiteId&quot;) Integer universiteId, @PathVariable(&quot;departementId&quot;)Integer departementId){
-<span class="nc" id="L54">		universiteService.assignUniversiteToDepartement(universiteId, departementId);</span>
-<span class="nc" id="L55">	}</span>
+<span class="nc" id="L51">		universiteService.assignUniversiteToDepartement(universiteId, departementId);</span>
+<span class="nc" id="L52">	}</span>
 
 	@GetMapping(value = &quot;/listerDepartementsUniversite/{idUniversite}&quot;)
 	public Set&lt;Departement&gt; listerDepartementsUniversite(@PathVariable(&quot;idUniversite&quot;) Integer idUniversite) {
 
-<span class="nc" id="L60">		return universiteService.retrieveDepartementsByUniversite(idUniversite);</span>
+<span class="nc" id="L57">		return universiteService.retrieveDepartementsByUniversite(idUniversite);</span>
 	}
 
 }
