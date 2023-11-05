@@ -12,10 +12,10 @@ kaddem,tn.esprit.spring.kaddem.entities,DetailEquipe,49,3,0,0,21,2,10,1,10,1
 kaddem,tn.esprit.spring.kaddem.entities,Option,0,44,0,0,0,2,0,1,0,1
 kaddem,tn.esprit.spring.kaddem.entities,Equipe,95,3,0,0,40,2,15,1,15,1
 kaddem,tn.esprit.spring.kaddem.entities,Departement,36,3,0,0,16,2,8,1,8,1
-kaddem,tn.esprit.spring.kaddem.entities,Etudiant,85,3,0,0,36,2,17,1,17,1
+kaddem,tn.esprit.spring.kaddem.entities,Etudiant,61,27,0,0,27,11,13,5,13,5
 kaddem,tn.esprit.spring.kaddem.entities,Specialite,0,44,0,0,0,2,0,1,0,1
 kaddem,tn.esprit.spring.kaddem.services,EquipeServiceImpl,165,10,22,0,35,2,17,2,6,2
 kaddem,tn.esprit.spring.kaddem.services,ContratServiceImpl,262,7,28,0,54,2,23,2,9,2
 kaddem,tn.esprit.spring.kaddem.services,UniversiteServiceImpl,71,3,0,0,14,2,7,1,7,1
-kaddem,tn.esprit.spring.kaddem.services,EtudiantServiceImpl,102,13,8,0,21,3,11,3,7,3
+kaddem,tn.esprit.spring.kaddem.services,EtudiantServiceImpl,74,41,8,0,15,9,7,7,3,7
 kaddem,tn.esprit.spring.kaddem.services,DepartementServiceImpl,33,7,0,0,7,2,5,2,5,2
