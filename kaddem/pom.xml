@@ -132,6 +132,7 @@
                 </executions>
             </plugin>
         </plugins>
+        <finalName>kaddem-2.0</finalName>
     </build>
     <!-- Deploy to Nexus -->
     <distributionManagement>
