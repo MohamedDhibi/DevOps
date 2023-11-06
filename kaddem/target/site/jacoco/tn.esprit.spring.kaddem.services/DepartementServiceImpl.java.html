@@ -5,37 +5,43 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import tn.esprit.spring.kaddem.entities.Departement;
-import tn.esprit.spring.kaddem.entities.Equipe;
-import tn.esprit.spring.kaddem.repositories.ContratRepository;
 import tn.esprit.spring.kaddem.repositories.DepartementRepository;
 
 import java.util.List;
+import java.util.Optional;
 
-<span class="fc" id="L14">@Slf4j</span>
+<span class="fc" id="L13">@Slf4j</span>
 
 @Service
-<span class="fc" id="L17">public class DepartementServiceImpl implements IDepartementService{</span>
+<span class="fc" id="L16">public class DepartementServiceImpl implements IDepartementService{</span>
 	@Autowired
 	DepartementRepository departementRepository;
 	public List&lt;Departement&gt; retrieveAllDepartements(){
-<span class="nc" id="L21">		return (List&lt;Departement&gt;) departementRepository.findAll();</span>
+<span class="nc" id="L20">		return (List&lt;Departement&gt;) departementRepository.findAll();</span>
 	}
 
 	public Departement addDepartement (Departement d){
-<span class="nc" id="L25">		return departementRepository.save(d);</span>
+<span class="nc" id="L24">		return departementRepository.save(d);</span>
 	}
 
 	public   Departement updateDepartement (Departement d){
-<span class="nc" id="L29">		return departementRepository.save(d);</span>
+<span class="nc" id="L28">		return departementRepository.save(d);</span>
 	}
 
-	public  Departement retrieveDepartement (Integer idDepart){
-<span class="nc" id="L33">		return departementRepository.findById(idDepart).get();</span>
+	public Departement retrieveDepartement(Integer idDepart) {
+<span class="nc" id="L32">		Optional&lt;Departement&gt; optionalDepartement = departementRepository.findById(idDepart);</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">		if (optionalDepartement.isPresent()) {</span>
+<span class="nc" id="L34">			return optionalDepartement.get();</span>
+		}
+		else {
+<span class="nc" id="L37">			return null; // Return null when the department is not found</span>
+		}
 	}
+
 	public  void deleteDepartement(Integer idDepartement){
-<span class="nc" id="L36">		Departement d=retrieveDepartement(idDepartement);</span>
-<span class="nc" id="L37">		departementRepository.delete(d);</span>
-<span class="nc" id="L38">	}</span>
+<span class="nc" id="L42">		Departement d=retrieveDepartement(idDepartement);</span>
+<span class="nc" id="L43">		departementRepository.delete(d);</span>
+<span class="nc" id="L44">	}</span>
 
 
 

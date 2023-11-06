@@ -7,18 +7,18 @@ import tn.esprit.spring.kaddem.entities.Universite;
 import tn.esprit.spring.kaddem.repositories.DepartementRepository;
 import tn.esprit.spring.kaddem.repositories.UniversiteRepository;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class UniversiteServiceImpl implements IUniversiteService{
+<span class="fc" id="L16">public class UniversiteServiceImpl implements IUniversiteService{</span>
 @Autowired
     UniversiteRepository universiteRepository;
 @Autowired
     DepartementRepository departementRepository;
-<span class="fc" id="L19">    public UniversiteServiceImpl() {</span>
-        // TODO Auto-generated constructor stub
-<span class="fc" id="L21">    }</span>
+
   public   List&lt;Universite&gt; retrieveAllUniversites(){
 <span class="nc" id="L23">return (List&lt;Universite&gt;) universiteRepository.findAll();</span>
     }
@@ -31,24 +31,46 @@ public class UniversiteServiceImpl implements IUniversiteService{
 <span class="nc" id="L31">     return  (universiteRepository.save(u));</span>
     }
 
-  public Universite retrieveUniversite (Integer idUniversite){
-<span class="nc" id="L35">Universite u = universiteRepository.findById(idUniversite).get();</span>
-<span class="nc" id="L36">return  u;</span>
+    public Universite retrieveUniversite(Integer idUniversite) {
+<span class="nc" id="L35">        Optional&lt;Universite&gt; optionalUniversite = universiteRepository.findById(idUniversite);</span>
+
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (optionalUniversite.isPresent()) {</span>
+<span class="nc" id="L38">            return optionalUniversite.get();</span>
+        } else {
+            // Handle the case where the value is not present, e.g., return a default value or throw an exception.
+            // Example:
+<span class="nc" id="L42">            return null ;</span>
+        }
     }
+
     public  void deleteUniversite(Integer idUniversite){
-<span class="nc" id="L39">        universiteRepository.delete(retrieveUniversite(idUniversite));</span>
-<span class="nc" id="L40">    }</span>
+<span class="nc" id="L47">        universiteRepository.delete(retrieveUniversite(idUniversite));</span>
+<span class="nc" id="L48">    }</span>
 
-    public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement){
-<span class="nc" id="L43">        Universite u= universiteRepository.findById(idUniversite).orElse(null);</span>
-<span class="nc" id="L44">        Departement d= departementRepository.findById(idDepartement).orElse(null);</span>
-<span class="nc" id="L45">        u.getDepartements().add(d);</span>
-<span class="nc" id="L46">        universiteRepository.save(u);</span>
-<span class="nc" id="L47">    }</span>
+    public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement) {
+<span class="nc" id="L51">        Universite u = universiteRepository.findById(idUniversite).orElse(null);</span>
+<span class="nc" id="L52">        Departement d = departementRepository.findById(idDepartement).orElse(null);</span>
 
-    public Set&lt;Departement&gt; retrieveDepartementsByUniversite(Integer idUniversite){
-<span class="nc" id="L50">Universite u=universiteRepository.findById(idUniversite).orElse(null);</span>
-<span class="nc" id="L51">return u.getDepartements();</span>
+<span class="nc bnc" id="L54" title="All 4 branches missed.">        if (u != null &amp;&amp; d != null) {</span>
+<span class="nc" id="L55">            u.getDepartements().add(d);</span>
+<span class="nc" id="L56">            universiteRepository.save(u);</span>
+        } else {
+            // Handle the case where u or d is null
+            // You can log an error or take other appropriate action
+        }
+<span class="nc" id="L61">    }</span>
+
+
+    public Set&lt;Departement&gt; retrieveDepartementsByUniversite(Integer idUniversite) {
+<span class="nc" id="L65">        Universite u = universiteRepository.findById(idUniversite).orElse(null);</span>
+
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (u != null) {</span>
+<span class="nc" id="L68">            return u.getDepartements();</span>
+        } else {
+<span class="nc" id="L70">            return Collections.emptySet();</span>
+        }
     }
+
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
