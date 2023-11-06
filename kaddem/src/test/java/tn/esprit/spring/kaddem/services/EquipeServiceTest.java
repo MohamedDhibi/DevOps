@@ -100,7 +100,7 @@ class EquipeServiceTest {
     }
 
     @Test
-    void deleteDepartement() {
+    void deleteEquipe() {
         // Arrange
         int EquipetId = 6;
         Equipe newEquipe = new Equipe(EquipetId, "New Equipe 6", Niveau.JUNIOR);
