@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8082
-ADD target/kaddem-2.0.jar kaddem-2.0.jar
-ENTRYPOINT ["java","-jar","/kaddem-2.0.jar"]
+COPY target/kaddem-2.0.jar /app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
