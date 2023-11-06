@@ -1,6 +1,4 @@
-FROM openjdk:8-jdk-alpine
-EXPOSE 8080
-
-ADD target/kaddem-2.0.jar kaddem-2.0.jar
-
-ENTRYPOINT ["java","-jar","/kaddem-2.0.jar"]
+FROM openjdk:11
+EXPOSE 8087
+COPY target/kaddem-2.0.jar kaddem.jar
+ENTRYPOINT ["java", "-jar", "kaddem.jar"]
