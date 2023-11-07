@@ -7,7 +7,7 @@ kaddem,tn.esprit.spring.kaddem.controllers,ContratRestController,47,6,0,0,11,1,9
 kaddem,tn.esprit.spring.kaddem.controllers,EtudiantRestController,42,6,0,0,10,1,8,1,8,1
 kaddem,tn.esprit.spring.kaddem.entities,Universite,36,3,0,0,16,2,8,1,8,1
 kaddem,tn.esprit.spring.kaddem.entities,Niveau,0,34,0,0,0,2,0,1,0,1
-kaddem,tn.esprit.spring.kaddem.entities,Contrat,130,3,0,0,37,2,17,1,17,1
+kaddem,tn.esprit.spring.kaddem.entities,Contrat,104,3,0,0,37,2,17,1,17,1
 kaddem,tn.esprit.spring.kaddem.entities,DetailEquipe,49,3,0,0,21,2,10,1,10,1
 kaddem,tn.esprit.spring.kaddem.entities,Option,0,44,0,0,0,2,0,1,0,1
 kaddem,tn.esprit.spring.kaddem.entities,Equipe,95,3,0,0,40,2,15,1,15,1
@@ -15,7 +15,7 @@ kaddem,tn.esprit.spring.kaddem.entities,Departement,36,3,0,0,16,2,8,1,8,1
 kaddem,tn.esprit.spring.kaddem.entities,Etudiant,61,27,0,0,27,11,13,5,13,5
 kaddem,tn.esprit.spring.kaddem.entities,Specialite,0,44,0,0,0,2,0,1,0,1
 kaddem,tn.esprit.spring.kaddem.services,EquipeServiceImpl,171,10,26,0,39,2,19,2,6,2
-kaddem,tn.esprit.spring.kaddem.services,ContratServiceImpl,262,7,28,0,54,2,23,2,9,2
+kaddem,tn.esprit.spring.kaddem.services,ContratServiceImpl,256,7,28,0,54,2,23,2,9,2
 kaddem,tn.esprit.spring.kaddem.services,UniversiteServiceImpl,84,3,8,0,19,1,11,1,7,1
 kaddem,tn.esprit.spring.kaddem.services,EtudiantServiceImpl,74,41,8,0,15,9,7,7,3,7
 kaddem,tn.esprit.spring.kaddem.services,DepartementServiceImpl,40,7,2,0,10,2,6,2,5,2

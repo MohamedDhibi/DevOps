@@ -1,4 +1,4 @@
 FROM openjdk:11
 EXPOSE 8087
-COPY target/kaddem-2.0.jar kaddem.jar
+ADD target/kaddem-2.0.jar kaddem.jar
 ENTRYPOINT ["java", "-jar", "kaddem.jar"]
