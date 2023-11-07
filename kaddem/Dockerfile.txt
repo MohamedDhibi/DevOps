@@ -5,5 +5,5 @@ ADD target/*.jar app.jar
 # Make port 8089 available to the world outside this container
 EXPOSE 8089
 # Run app.jar when the container launches
-CMD ["java", "-jar", "/app.jar"] 
+CMD ["java", "-jar", "app.jar"] 
 #CMD mvn spring-boot:run 
