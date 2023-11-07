@@ -1,11 +1,11 @@
-version: "2.4"
+version: "3"
 
 volumes:
   db:
 
 services:
   kadem:
-    image: jihensouissi/kaddemproject:v2
+    image: jihensouissi/kaddemproject:latest
     restart: always
     depends_on:
       - mysql
@@ -14,7 +14,7 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/kaddemm?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_DATASOURCE_PASSWORD=
 
 
 
@@ -28,4 +28,4 @@ services:
       - 3306:3306
     environment:
       MYSQL_DATABASE: kaddemm
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD:
