@@ -1,24 +1,31 @@
 version: "3"
 
-services:
-  mysqldb:
-    container_name: mysqldb
-    image: mysql:latest
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    ports:
-      - 3306:3306
-    volumes:
-      - /home/vagrant/data/mysql:/var/lib/mysql
-      
+volumes:
+  db:
 
-  spring_app:
-    image: devopskaddem
-    container_name: devopskaddem
-    restart: on-failure
+services:
+  kadem:
+    image: mohameddhibi/kaddem:latest
+    restart: always
+    depends_on:
+      - mysql
     ports:
       - 8089:8089
-    depends_on:
-      - mysqldb
-    
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/kaddem?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
+
+
+
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: kaddem
+      MYSQL_ROOT_PASSWORD:
