@@ -55,45 +55,56 @@ public class EquipeServiceImpl implements IEquipeService{
 		List<Equipe> equipes = (List<Equipe>) equipeRepository.findAll();
 
 		for (Equipe equipe : equipes) {
-			if ((equipe.getNiveau().equals(Niveau.JUNIOR)) || (equipe.getNiveau().equals(Niveau.SENIOR))) {
-				List<Etudiant> etudiants = (List<Etudiant>) equipe.getEtudiants();
-				Integer nbEtudiantsAvecContratsActifs = 0;
+			if (equipe.getNiveau().equals(Niveau.JUNIOR) || equipe.getNiveau().equals(Niveau.SENIOR)) {
 				boolean shouldUpdateNiveau = false;
 
-				for (Etudiant etudiant : etudiants) {
-					Set<Contrat> contrats = etudiant.getContrats();
-
-					for (Contrat contrat : contrats) {
-						Date dateSysteme = new Date();
-						long differenceInMillis = dateSysteme.getTime() - contrat.getDateFinContrat().getTime();
-						long differenceInYears = (differenceInMillis / (1000l * 60 * 60 * 24 * 365));
-
-						if (Boolean.FALSE.equals(contrat.getArchive()) && (differenceInYears > 1)) {
-							nbEtudiantsAvecContratsActifs++;
-
-							if (nbEtudiantsAvecContratsActifs >= 3) {
-								shouldUpdateNiveau = true;
-								break;
-							}
-						}
-					}
-
-					if (shouldUpdateNiveau) {
+				for (Etudiant etudiant : equipe.getEtudiants()) {
+					if (shouldUpdateNiveau(etudiant)) {
+						shouldUpdateNiveau = true;
 						break;
 					}
 				}
 
 				if (shouldUpdateNiveau) {
-					if (equipe.getNiveau().equals(Niveau.JUNIOR)) {
-						equipe.setNiveau(Niveau.SENIOR);
-					} else if (equipe.getNiveau().equals(Niveau.SENIOR)) {
-						equipe.setNiveau(Niveau.EXPERT);
-					}
-
-					equipeRepository.save(equipe);
+					updateNiveau(equipe);
 				}
 			}
 		}
+	}
+
+	private boolean shouldUpdateNiveau(Etudiant etudiant) {
+		Date dateSysteme = new Date();
+		Set<Contrat> contrats = etudiant.getContrats();
+		int nbEtudiantsAvecContratsActifs = 0;
+
+		for (Contrat contrat : contrats) {
+			if (contrat.getArchive() != null && !contrat.getArchive()) {
+				long differenceInMillis = dateSysteme.getTime() - contrat.getDateFinContrat().getTime();
+				long differenceInYears = (differenceInMillis / (1000L * 60 * 60 * 24 * 365));
+
+				if (differenceInYears > 1) {
+					nbEtudiantsAvecContratsActifs++;
+
+					if (nbEtudiantsAvecContratsActifs >= 3) {
+						return true;
+					}
+				}
+			}
+		}
+
+		return false;
+	}
+
+	private void updateNiveau(Equipe equipe) {
+		Niveau niveau = equipe.getNiveau();
+
+		if (niveau.equals(Niveau.JUNIOR)) {
+			equipe.setNiveau(Niveau.SENIOR);
+		} else if (niveau.equals(Niveau.SENIOR)) {
+			equipe.setNiveau(Niveau.EXPERT);
+		}
+
+		equipeRepository.save(equipe);
 	}
 
 }

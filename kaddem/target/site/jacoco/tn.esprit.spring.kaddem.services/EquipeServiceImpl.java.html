@@ -55,46 +55,57 @@ public class EquipeServiceImpl implements IEquipeService{
 <span class="nc" id="L55">		List&lt;Equipe&gt; equipes = (List&lt;Equipe&gt;) equipeRepository.findAll();</span>
 
 <span class="nc bnc" id="L57" title="All 2 branches missed.">		for (Equipe equipe : equipes) {</span>
-<span class="nc bnc" id="L58" title="All 4 branches missed.">			if ((equipe.getNiveau().equals(Niveau.JUNIOR)) || (equipe.getNiveau().equals(Niveau.SENIOR))) {</span>
-<span class="nc" id="L59">				List&lt;Etudiant&gt; etudiants = (List&lt;Etudiant&gt;) equipe.getEtudiants();</span>
-<span class="nc" id="L60">				Integer nbEtudiantsAvecContratsActifs = 0;</span>
-<span class="nc" id="L61">				boolean shouldUpdateNiveau = false;</span>
+<span class="nc bnc" id="L58" title="All 4 branches missed.">			if (equipe.getNiveau().equals(Niveau.JUNIOR) || equipe.getNiveau().equals(Niveau.SENIOR)) {</span>
+<span class="nc" id="L59">				boolean shouldUpdateNiveau = false;</span>
 
-<span class="nc bnc" id="L63" title="All 2 branches missed.">				for (Etudiant etudiant : etudiants) {</span>
-<span class="nc" id="L64">					Set&lt;Contrat&gt; contrats = etudiant.getContrats();</span>
-
-<span class="nc bnc" id="L66" title="All 2 branches missed.">					for (Contrat contrat : contrats) {</span>
-<span class="nc" id="L67">						Date dateSysteme = new Date();</span>
-<span class="nc" id="L68">						long differenceInMillis = dateSysteme.getTime() - contrat.getDateFinContrat().getTime();</span>
-<span class="nc" id="L69">						long differenceInYears = (differenceInMillis / (1000l * 60 * 60 * 24 * 365));</span>
-
-<span class="nc bnc" id="L71" title="All 4 branches missed.">						if (Boolean.FALSE.equals(contrat.getArchive()) &amp;&amp; (differenceInYears &gt; 1)) {</span>
-<span class="nc" id="L72">							nbEtudiantsAvecContratsActifs++;</span>
-
-<span class="nc bnc" id="L74" title="All 2 branches missed.">							if (nbEtudiantsAvecContratsActifs &gt;= 3) {</span>
-<span class="nc" id="L75">								shouldUpdateNiveau = true;</span>
-<span class="nc" id="L76">								break;</span>
-							}
-						}
-<span class="nc" id="L79">					}</span>
-
-<span class="nc bnc" id="L81" title="All 2 branches missed.">					if (shouldUpdateNiveau) {</span>
-<span class="nc" id="L82">						break;</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">				for (Etudiant etudiant : equipe.getEtudiants()) {</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">					if (shouldUpdateNiveau(etudiant)) {</span>
+<span class="nc" id="L63">						shouldUpdateNiveau = true;</span>
+<span class="nc" id="L64">						break;</span>
 					}
-<span class="nc" id="L84">				}</span>
+<span class="nc" id="L66">				}</span>
 
-<span class="nc bnc" id="L86" title="All 2 branches missed.">				if (shouldUpdateNiveau) {</span>
-<span class="nc bnc" id="L87" title="All 2 branches missed.">					if (equipe.getNiveau().equals(Niveau.JUNIOR)) {</span>
-<span class="nc" id="L88">						equipe.setNiveau(Niveau.SENIOR);</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">					} else if (equipe.getNiveau().equals(Niveau.SENIOR)) {</span>
-<span class="nc" id="L90">						equipe.setNiveau(Niveau.EXPERT);</span>
-					}
-
-<span class="nc" id="L93">					equipeRepository.save(equipe);</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">				if (shouldUpdateNiveau) {</span>
+<span class="nc" id="L69">					updateNiveau(equipe);</span>
 				}
 			}
-<span class="nc" id="L96">		}</span>
-<span class="nc" id="L97">	}</span>
+<span class="nc" id="L72">		}</span>
+<span class="nc" id="L73">	}</span>
+
+	private boolean shouldUpdateNiveau(Etudiant etudiant) {
+<span class="nc" id="L76">		Date dateSysteme = new Date();</span>
+<span class="nc" id="L77">		Set&lt;Contrat&gt; contrats = etudiant.getContrats();</span>
+<span class="nc" id="L78">		int nbEtudiantsAvecContratsActifs = 0;</span>
+
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		for (Contrat contrat : contrats) {</span>
+<span class="nc bnc" id="L81" title="All 4 branches missed.">			if (contrat.getArchive() != null &amp;&amp; !contrat.getArchive()) {</span>
+<span class="nc" id="L82">				long differenceInMillis = dateSysteme.getTime() - contrat.getDateFinContrat().getTime();</span>
+<span class="nc" id="L83">				long differenceInYears = (differenceInMillis / (1000L * 60 * 60 * 24 * 365));</span>
+
+<span class="nc bnc" id="L85" title="All 2 branches missed.">				if (differenceInYears &gt; 1) {</span>
+<span class="nc" id="L86">					nbEtudiantsAvecContratsActifs++;</span>
+
+<span class="nc bnc" id="L88" title="All 2 branches missed.">					if (nbEtudiantsAvecContratsActifs &gt;= 3) {</span>
+<span class="nc" id="L89">						return true;</span>
+					}
+				}
+			}
+<span class="nc" id="L93">		}</span>
+
+<span class="nc" id="L95">		return false;</span>
+	}
+
+	private void updateNiveau(Equipe equipe) {
+<span class="nc" id="L99">		Niveau niveau = equipe.getNiveau();</span>
+
+<span class="nc bnc" id="L101" title="All 2 branches missed.">		if (niveau.equals(Niveau.JUNIOR)) {</span>
+<span class="nc" id="L102">			equipe.setNiveau(Niveau.SENIOR);</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		} else if (niveau.equals(Niveau.SENIOR)) {</span>
+<span class="nc" id="L104">			equipe.setNiveau(Niveau.EXPERT);</span>
+		}
+
+<span class="nc" id="L107">		equipeRepository.save(equipe);</span>
+<span class="nc" id="L108">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

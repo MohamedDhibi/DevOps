@@ -21,10 +21,13 @@ services:
     depends_on:
       - mysqldb
 
-    #environment:
-    ##  - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/kaddemm?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-      ##- SPRING_DATASOURCE_USERNAME=root
-     ## - SPRING_DATASOURCE_PASSWORD=
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/kaddemm?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
+      - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+      - spring.jpa.hibernate.ddl-auto=update
+
 
 
 
