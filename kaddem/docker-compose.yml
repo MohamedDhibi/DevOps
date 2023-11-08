@@ -1,0 +1,30 @@
+version: "3.3"
+
+services:
+  mysqldb:
+    container_name: mysqldb
+    image: mysql
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: kaddemm
+      MYSQL_ROOT_PASSWORD:
+
+  kaddem:
+    image: ahmedtoukebri/kaddem:1
+    restart: on-failure
+    ports:
+      - 8089:8089
+    depends_on:
+      - mysqldb
+
+    #environment:
+    ##  - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/kaddemm?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      ##- SPRING_DATASOURCE_USERNAME=root
+     ## - SPRING_DATASOURCE_PASSWORD=
+
+
+
