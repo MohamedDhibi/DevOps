@@ -1,31 +1,17 @@
-version: "3"
-
-volumes:
-  db:
+version: "3.9"
 
 services:
-  kadem:
-    image: mohameddhibi/kaddem:latest
-    restart: always
-    depends_on:
-      - mysql
+  Validation_DevOps:
+    container_name: DevOps
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - 8089:8089
+      - "8089:8089"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/kaddem?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=
-
-
-
-  mysql:
-    container_name: mysql
-    image: mysql
-    restart: always
-    volumes:
-      - db:/var/lib/mysql
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_DATABASE: kaddem
-      MYSQL_ROOT_PASSWORD:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:ski;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=password
+    image: kaddem
+    command: mvn test
+    restart: unless-stopped
