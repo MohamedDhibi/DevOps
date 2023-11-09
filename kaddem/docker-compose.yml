@@ -29,3 +29,4 @@ services:
     environment:
       MYSQL_DATABASE: kaddem
       MYSQL_ROOT_PASSWORD:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
