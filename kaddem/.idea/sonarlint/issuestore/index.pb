@@ -59,3 +59,5 @@ x
 Hsrc/main/java/tn/esprit/spring/kaddem/repositories/EquipeRepository.java,f\8\f888df89e3d665fb13a022e447b093a50c775e60
 }
 Msrc/main/java/tn/esprit/spring/kaddem/repositories/DepartementRepository.java,4\c\4c1c4c8beebee045343822150eb5f6b53faca632
+<
+settings.xml,1\d\1d784fce58c3719506730fb9749600554125b511
